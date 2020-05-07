@@ -22,6 +22,7 @@ class Contact extends Component {
   handleSubmit(values){
     console.log("The current state : " + JSON.stringify(values));
     alert("The current state : " + JSON.stringify(values));
+    this.props.postFeedback(values.firstname, values.lastname, values.telnum, values.email, values.agree, values.contactType, values.message);
     this.props.resetFeedbackForm();
     //event.preventDefault();
   }
@@ -30,7 +31,7 @@ class Contact extends Component {
   
 
   render() {
-    return (
+    return (  
       <div className="container">
         <div className="row">
           <Breadcrumb>

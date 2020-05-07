@@ -10,10 +10,6 @@ const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => val && (val.length >= len);
 
-
-
-
-
 class CommentForm extends Component {
     constructor(props){
         super (props);
@@ -165,28 +161,39 @@ const Dishdetail = (props) =>{
     }
 
     else if(props.selectedDish != null){
-        return(
-            <div className="container">
-                <div className="row">
-                    <Breadcrumb>
-                        <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
-                        <BreadcrumbItem active>{props.selectedDish.name}</BreadcrumbItem>
-                    </Breadcrumb>
-                    <div className="col-12">
-                        <h3>{props.selectedDish.name}</h3>
-                        <hr />
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-12 col-md-5 m-1">
-                        <RenderDish dish={props.selectedDish} />
-                    </div>
-                    <div className="col-12 col-md-5 m-1">
-                        <RenderComments comments={props.comments} postComment={props.postComment} dishId={props.selectedDish.id} />                        
-                    </div>
-                </div>                
-            </div>   
-        )
+        return (
+          <div className="container">
+            <div className="row">
+              <Breadcrumb>
+                <BreadcrumbItem>
+                  <Link to="/home">Home</Link>
+                </BreadcrumbItem>
+                <BreadcrumbItem>
+                  <Link to="/menu">Menu</Link>
+                </BreadcrumbItem>
+                <BreadcrumbItem active>
+                  {props.selectedDish.name}
+                </BreadcrumbItem>
+              </Breadcrumb>
+              <div className="col-12">
+                <h3>{props.selectedDish.name}</h3>
+                <hr />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12 col-md-5 m-1">
+                <RenderDish dish={props.selectedDish} />
+              </div>
+              <div className="col-12 col-md-5 m-1">
+                <RenderComments
+                  comments={props.comments}
+                  postComment={props.postComment}
+                  dishId={props.selectedDish.id}
+                />
+              </div>
+            </div>
+          </div>
+        );
     }
     else{
         return(
