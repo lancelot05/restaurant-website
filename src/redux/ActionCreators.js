@@ -219,7 +219,7 @@ export const addLeaders = (leaders) => ({
 
 
 
-export const postFeedback = (firstname, lastname, telnum, email, agree, contactType, message ) => (dispatch) => {
+export const postFeedback = (firstname, lastname, telnum, email, agree, contactType, message  ) => (dispatch) => {
 
   const newFeedback = {
     firstname: firstname,
